@@ -3,11 +3,9 @@
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import postgres from "postgres";
+import { sql } from "@vercel/postgres";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
-
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 
 export type State = {
   errors?: {
@@ -56,6 +54,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
       VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
     `;
   } catch (error) {
+    console.error("Database Error:", error);
     return {
       message: "Database Error: Failed to Create Invoice.",
     };
@@ -95,6 +94,7 @@ export async function updateInvoice(
       WHERE id = ${id}
     `;
   } catch (error) {
+    console.error("Database Error:", error);
     return { message: "Database Error: Failed to Update Invoice." };
   }
 
@@ -106,10 +106,9 @@ export async function deleteInvoice(id: string) {
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
     revalidatePath("/dashboard/invoices");
-    return { message: "Deleted Invoice." };
   } catch (error) {
-    console.error(error);
-    return { message: "Database Error: Failed to Delete Invoice." };
+    console.error("Database Error:", error);
+    throw new Error("Database Error: Failed to Delete Invoice.");
   }
 }
 
