@@ -1,6 +1,4 @@
-import postgres from "postgres";
-
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
+import { sql } from "@vercel/postgres";
 
 async function listInvoices() {
   const data = await sql`
@@ -10,13 +8,14 @@ async function listInvoices() {
     WHERE invoices.amount = 666;
   `;
 
-  return data;
+  return data.rows;
 }
 
 export async function GET() {
   try {
     return Response.json(await listInvoices());
   } catch (error) {
+    console.error("Query Error:", error);
     return Response.json({ error }, { status: 500 });
   }
 }
