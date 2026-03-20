@@ -61,6 +61,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
   }
 
   revalidatePath("/dashboard/invoices");
+  revalidatePath("/dashboard");
   redirect("/dashboard/invoices");
 }
 
@@ -99,6 +100,7 @@ export async function updateInvoice(
   }
 
   revalidatePath("/dashboard/invoices");
+  revalidatePath("/dashboard");
   redirect("/dashboard/invoices");
 }
 
@@ -110,6 +112,9 @@ export async function deleteInvoice(id: string) {
     console.error("Database Error:", error);
     throw new Error("Database Error: Failed to Delete Invoice.");
   }
+
+  revalidatePath("/dashboard/invoices");
+  revalidatePath("/dashboard");
 }
 
 export async function authenticate(
