@@ -1,6 +1,8 @@
 import "@/app/ui/global.css";
 import { inter } from "@/app/ui/fonts";
 import { Metadata } from "next";
+import { ThemeProvider } from "@/app/providers/ThemeProvider";
+import FloatingDarkModeToggle from "@/app/ui/layout/FloatingDarkModeToggle";
 
 export const metadata: Metadata = {
   title: {
@@ -33,14 +35,33 @@ export const metadata: Metadata = {
     description: "Track your revenue and invoices efficiently.",
   },
 };
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme') || 
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.classList.toggle('dark', theme === 'dark');
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className={`${inter.className} antialiased`}>
+        <ThemeProvider>
+          <FloatingDarkModeToggle />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
