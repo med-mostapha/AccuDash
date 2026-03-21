@@ -11,7 +11,7 @@ export default async function Page() {
   const customers = await fetchCustomers();
 
   return (
-    <main>
+    <div className="w-full space-y-6">
       <Breadcrumbs
         breadcrumbs={[
           { label: "Invoices", href: "/dashboard/invoices" },
@@ -22,7 +22,17 @@ export default async function Page() {
           },
         ]}
       />
+
+      <div>
+        <h1 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white">
+          Create New Invoice
+        </h1>
+        <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+          Fill in the details to create a new invoice
+        </p>
+      </div>
+
       <Form customers={customers} />
-    </main>
+    </div>
   );
 }
