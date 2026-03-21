@@ -1,4 +1,5 @@
 "use client";
+
 import {
   UserGroupIcon,
   HomeIcon,
@@ -20,22 +21,37 @@ const links = [
 
 export default function NavLinks() {
   const pathname = usePathname();
+
   return (
     <>
       {links.map((link) => {
         const LinkIcon = link.icon;
+        const isActive = pathname === link.href;
+
         return (
           <Link
             key={link.name}
             href={link.href}
             className={clsx(
-              "flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3",
-              {
-                "bg-sky-100 text-blue-600": pathname === link.href,
-              },
+              "group relative flex  h-12 items-center justify-center gap-3 rounded-lg px-3 text-sm font-medium transition-all duration-200 md:justify-start",
+              isActive
+                ? "bg-primary-100 dark:bg-primary-950 text-primary-700 dark:text-primary-300 shadow-sm"
+                : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100",
             )}
           >
-            <LinkIcon className="w-6" />
+            {isActive && (
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary-500 rounded-r-full" />
+            )}
+
+            <LinkIcon
+              className={clsx(
+                "w-6 h-6 transition-transform group-hover:scale-110",
+                isActive
+                  ? "text-primary-500"
+                  : "text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-300",
+              )}
+            />
+
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );

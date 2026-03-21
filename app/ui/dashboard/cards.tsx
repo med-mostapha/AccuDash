@@ -14,8 +14,31 @@ const iconMap = {
   invoices: InboxIcon,
 };
 
+// Color themes for each card type
+const cardStyles = {
+  collected: {
+    iconBg: "bg-emerald-100 dark:bg-emerald-950",
+    iconColor: "text-emerald-600 dark:text-emerald-400",
+    gradient: "from-emerald-500/10 to-transparent",
+  },
+  pending: {
+    iconBg: "bg-amber-100 dark:bg-amber-950",
+    iconColor: "text-amber-600 dark:text-amber-400",
+    gradient: "from-amber-500/10 to-transparent",
+  },
+  invoices: {
+    iconBg: "bg-blue-100 dark:bg-blue-950",
+    iconColor: "text-blue-600 dark:text-blue-400",
+    gradient: "from-blue-500/10 to-transparent",
+  },
+  customers: {
+    iconBg: "bg-purple-100 dark:bg-purple-950",
+    iconColor: "text-purple-600 dark:text-purple-400",
+    gradient: "from-purple-500/10 to-transparent",
+  },
+};
+
 export default async function CardWrapper() {
-  // ✅ نقل fetchCardData داخل الـ function
   const {
     numberOfInvoices,
     numberOfCustomers,
@@ -47,19 +70,32 @@ export function Card({
   type: "invoices" | "customers" | "pending" | "collected";
 }) {
   const Icon = iconMap[type];
+  const styles = cardStyles[type];
 
   return (
-    <div className="rounded-xl bg-gray-50 p-2 shadow-sm">
-      <div className="flex p-4">
-        {Icon ? <Icon className="h-5 w-5 text-gray-700" /> : null}
-        <h3 className="ml-2 text-sm font-medium">{title}</h3>
+    <div className="group relative overflow-hidden rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <div
+        className={`absolute inset-0 bg-gradient-to-br ${styles.gradient} opacity-50`}
+      />
+
+      <div className="relative">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+            {title}
+          </h3>
+          <div
+            className={`p-2 rounded-lg ${styles.iconBg} transition-transform group-hover:scale-110`}
+          >
+            {Icon && <Icon className={`h-5 w-5 ${styles.iconColor}`} />}
+          </div>
+        </div>
+
+        <p
+          className={`${lusitana.className} text-3xl font-bold text-neutral-900 dark:text-white`}
+        >
+          {value}
+        </p>
       </div>
-      <p
-        className={`${lusitana.className}
-          truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
-      >
-        {value}
-      </p>
     </div>
   );
 }
