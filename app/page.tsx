@@ -16,9 +16,7 @@ import AnimatedSection from "@/app/ui/design-system/AnimatedSection";
 export default function Page() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white via-neutral-50 to-white dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-950">
-      {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32">
-        {/* Background Decoration */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl" />
@@ -26,13 +24,10 @@ export default function Page() {
 
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
             <AnimatedSection animation="fade-in-up">
               <div className="space-y-8">
-                {/* Logo */}
                 <Logo className="scale-110 origin-left" />
 
-                {/* Title */}
                 <h1 className="text-5xl md:text-6xl font-bold leading-tight">
                   <GradientText animated className="block mb-2">
                     Smart Business
@@ -42,14 +37,12 @@ export default function Page() {
                   </span>
                 </h1>
 
-                {/* Description */}
                 <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-xl">
                   Manage invoices, track customers, and gain real-time insights
                   into your business performance with our modern dashboard.
                 </p>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-row items-center sm:flex-row gap-4">
                   <Link href="/dashboard">
                     <Button
                       variant="primary"
@@ -65,18 +58,13 @@ export default function Page() {
                     </Button>
                   </Link>
                 </div>
-
-                {/* Stats */}
               </div>
             </AnimatedSection>
 
-            {/* Right Content - Dashboard Preview */}
             <AnimatedSection animation="slide-in-right" delay={200}>
               <div className="relative">
-                {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 opacity-20 blur-3xl rounded-3xl" />
 
-                {/* Image Container */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800">
                   <Image
                     src="/hero-desktop.png"
@@ -93,7 +81,6 @@ export default function Page() {
         </Container>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 bg-neutral-50 dark:bg-neutral-900/50">
         <Container>
           <AnimatedSection animation="fade-in-up">
@@ -109,7 +96,6 @@ export default function Page() {
           </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
             <AnimatedSection animation="fade-in-up" delay={100}>
               <Card variant="elevated" hover className="h-full">
                 <div className="space-y-4">
@@ -127,7 +113,6 @@ export default function Page() {
               </Card>
             </AnimatedSection>
 
-            {/* Feature 2 */}
             <AnimatedSection animation="fade-in-up" delay={200}>
               <Card variant="elevated" hover className="h-full">
                 <div className="space-y-4">
@@ -145,7 +130,6 @@ export default function Page() {
               </Card>
             </AnimatedSection>
 
-            {/* Feature 3 */}
             <AnimatedSection animation="fade-in-up" delay={300}>
               <Card variant="elevated" hover className="h-full">
                 <div className="space-y-4">
@@ -166,7 +150,6 @@ export default function Page() {
         </Container>
       </section>
 
-      {/* Final CTA Section */}
       <section className="py-20">
         <Container size="md">
           <AnimatedSection animation="scale-in">

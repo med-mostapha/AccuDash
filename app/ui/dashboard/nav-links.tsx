@@ -40,7 +40,7 @@ export default function NavLinks() {
             )}
           >
             {isActive && (
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary-500 rounded-r-full" />
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary-500 rounded-r-full max-md:w-12 max-md:h-1 max-md:top-full" />
             )}
 
             <LinkIcon

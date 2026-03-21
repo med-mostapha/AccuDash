@@ -37,7 +37,7 @@ export default function FormInput({
       <div className="relative">
         <input
           className={clsx(
-            "peer block w-full rounded-lg border py-3 pl-11 pr-4 text-sm transition-all",
+            "peer block w-full rounded-lg border py-3 pl-11 pr-4 text-base transition-all",
             "placeholder:text-neutral-400 dark:placeholder:text-neutral-500",
             "bg-white dark:bg-neutral-900",
             "text-neutral-900 dark:text-neutral-100",
