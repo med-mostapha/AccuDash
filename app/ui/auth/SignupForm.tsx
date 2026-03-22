@@ -9,12 +9,12 @@ import {
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { signup, SignupState } from "@/app/lib/actions";
+import { signup, State } from "@/app/lib/actions/auth";
 import Button from "@/app/ui/design-system/Button";
 import FormInput from "./FormInput";
 
 export default function SignupForm() {
-  const initialState: SignupState = { message: null, errors: {} };
+  const initialState: State = { message: null, errors: {} };
   const [state, formAction, isPending] = useActionState(signup, initialState);
 
   return (

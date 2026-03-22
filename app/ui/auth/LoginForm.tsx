@@ -9,7 +9,7 @@ import {
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { authenticate } from "@/app/lib/actions";
+import { authenticate } from "@/app/lib/actions/auth";
 import Button from "@/app/ui/design-system/Button";
 import FormInput from "./FormInput";
 
