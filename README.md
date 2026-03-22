@@ -327,15 +327,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Database powered by [Vercel Postgres](https://vercel.com/storage/postgres)
 - Authentication by [NextAuth.js](https://next-auth.js.org/)
 
----
 
-## 📊 Project Stats
-
-![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/nextjs-dashboard?style=social)
-![GitHub forks](https://img.shields.io/github/forks/YOUR_USERNAME/nextjs-dashboard?style=social)
-![GitHub issues](https://img.shields.io/github/issues/YOUR_USERNAME/nextjs-dashboard)
-![GitHub license](https://img.shields.io/github/license/YOUR_USERNAME/nextjs-dashboard)
-
----
-
-Made with ❤️ and Next.js
