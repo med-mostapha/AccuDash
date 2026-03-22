@@ -1,12 +1,16 @@
 import CardWrapper from "@/app/ui/dashboard/cards";
-import RevenueChart from "@/app/ui/dashboard/revenue-chart";
+import InvoiceStatusChart from "@/app/ui/dashboard/invoice-status-chart";
+import TopCustomersChart from "@/app/ui/dashboard/top-customers-chart";
+import MonthlyTrendsChart from "@/app/ui/dashboard/monthly-trends-chart";
 import LatestInvoices from "@/app/ui/dashboard/latest-invoices";
 import { lusitana } from "@/app/ui/fonts";
 import { Suspense } from "react";
 import {
   CardsSkeleton,
+  InvoiceStatusChartSkeleton,
+  TopCustomersChartSkeleton,
+  MonthlyTrendsChartSkeleton,
   LatestInvoicesSkeleton,
-  RevenueChartSkeleton,
 } from "@/app/ui/skeletons";
 
 export default async function Page() {
@@ -31,6 +35,7 @@ export default async function Page() {
         </div>
       </div>
 
+      {/* Cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Suspense fallback={<CardsSkeleton />}>
           <CardWrapper />
@@ -38,12 +43,22 @@ export default async function Page() {
       </div>
 
       <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
-        <Suspense fallback={<RevenueChartSkeleton />}>
-          <RevenueChart />
-        </Suspense>
-
         <Suspense fallback={<LatestInvoicesSkeleton />}>
           <LatestInvoices />
+        </Suspense>
+
+        <Suspense fallback={<TopCustomersChartSkeleton />}>
+          <TopCustomersChart />
+        </Suspense>
+      </div>
+
+      <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
+        <Suspense fallback={<MonthlyTrendsChartSkeleton />}>
+          <MonthlyTrendsChart />
+        </Suspense>
+
+        <Suspense fallback={<InvoiceStatusChartSkeleton />}>
+          <InvoiceStatusChart />
         </Suspense>
       </div>
     </main>

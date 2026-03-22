@@ -357,3 +357,78 @@ export function CustomersTableSkeleton() {
     </div>
   );
 }
+
+export function InvoiceStatusChartSkeleton() {
+  return (
+    <div className="w-full">
+      <div className="mb-4 h-8 w-48 rounded-lg bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+      <div className="rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-6">
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          {/* Donut skeleton */}
+          <div className="w-[200px] h-[200px] rounded-full bg-neutral-100 dark:bg-neutral-800 animate-pulse" />
+
+          {/* Stats skeleton */}
+          <div className="flex-1 space-y-4 w-full">
+            <div className="h-20 rounded-lg bg-neutral-100 dark:bg-neutral-800 animate-pulse" />
+            <div className="h-20 rounded-lg bg-neutral-100 dark:bg-neutral-800 animate-pulse" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function TopCustomersChartSkeleton() {
+  return (
+    <div className="w-full">
+      <div className="mb-4 h-8 w-48 rounded-lg bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+      <div className="rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-6">
+        <div className="space-y-4">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div key={i} className="space-y-2">
+              <div className="flex items-center gap-3">
+                <div className="w-6 h-6 rounded-full bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+                <div className="w-8 h-8 rounded-full bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+                <div className="flex-1 h-6 rounded bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+                <div className="w-20 h-6 rounded bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+              </div>
+              <div className="h-3 rounded-full bg-neutral-100 dark:bg-neutral-800 animate-pulse" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function MonthlyTrendsChartSkeleton() {
+  return (
+    <div className="w-full">
+      <div className="mb-4 h-8 w-48 rounded-lg bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+      <div className="rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-6">
+        <div className="rounded-lg bg-neutral-50 dark:bg-neutral-950 p-4 mb-4">
+          <div className="h-[200px] flex items-end justify-around gap-1">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
+              <div
+                key={i}
+                className="flex-1 bg-neutral-200 dark:bg-neutral-800 rounded-t-lg animate-pulse"
+                style={{ height: `${Math.random() * 80 + 20}%` }}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {[1, 2, 3, 4].map((i) => (
+            <div
+              key={i}
+              className="p-3 rounded-lg bg-neutral-100 dark:bg-neutral-800"
+            >
+              <div className="h-3 w-16 rounded bg-neutral-200 dark:bg-neutral-700 animate-pulse mb-2" />
+              <div className="h-6 w-12 rounded bg-neutral-200 dark:bg-neutral-700 animate-pulse" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
