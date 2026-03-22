@@ -1,5 +1,7 @@
 {
   "private": true,
+  "name": "accudash",
+  "version": "0.1.0",
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
