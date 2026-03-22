@@ -14,6 +14,28 @@ export const metadata: Metadata = {
     "View and manage all your business invoices and payment statuses.",
 };
 
+async function InvoicesContent({
+  query,
+  currentPage,
+}: {
+  query: string;
+  currentPage: number;
+}) {
+  const totalPages = await fetchInvoicesPages(query);
+
+  return (
+    <>
+      <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
+        <Table query={query} currentPage={currentPage} />
+      </Suspense>
+
+      <div className="flex justify-center">
+        <Pagination totalPages={totalPages} />
+      </div>
+    </>
+  );
+}
+
 export default async function Page(props: {
   searchParams?: Promise<{
     query?: string;
@@ -23,7 +45,6 @@ export default async function Page(props: {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
-  const totalPages = await fetchInvoicesPages(query);
 
   return (
     <div className="w-full space-y-6">
@@ -47,14 +68,9 @@ export default async function Page(props: {
         <CreateInvoice />
       </div>
 
-      <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
-        <Table query={query} currentPage={currentPage} />
+      <Suspense fallback={<InvoicesTableSkeleton />}>
+        <InvoicesContent query={query} currentPage={currentPage} />
       </Suspense>
-
-      {/* Pagination */}
-      <div className="flex justify-center">
-        <Pagination totalPages={totalPages} />
-      </div>
     </div>
   );
 }

@@ -226,3 +226,134 @@ export function InvoicesTableSkeleton() {
     </div>
   );
 }
+
+export function CustomerRowSkeleton() {
+  return (
+    <tr className="hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
+      <td className="whitespace-nowrap py-4 pl-6 pr-3">
+        <div className="flex items-center gap-3">
+          <div className="h-10 w-10 rounded-full bg-neutral-200 dark:bg-neutral-700" />
+          <div className="h-5 w-32 rounded bg-neutral-200 dark:bg-neutral-700" />
+        </div>
+      </td>
+      <td className="whitespace-nowrap px-3 py-4">
+        <div className="h-4 w-40 rounded bg-neutral-200 dark:bg-neutral-700" />
+      </td>
+      <td className="whitespace-nowrap px-3 py-4">
+        <div className="h-5 w-12 rounded bg-neutral-200 dark:bg-neutral-700" />
+      </td>
+      <td className="whitespace-nowrap px-3 py-4">
+        <div className="h-5 w-20 rounded bg-neutral-200 dark:bg-neutral-700" />
+      </td>
+      <td className="whitespace-nowrap px-3 py-4">
+        <div className="h-5 w-20 rounded bg-neutral-200 dark:bg-neutral-700" />
+      </td>
+      <td className="whitespace-nowrap py-4 pl-3 pr-6">
+        <div className="flex justify-end gap-2">
+          <div className="h-10 w-10 rounded-lg bg-neutral-200 dark:bg-neutral-700" />
+          <div className="h-10 w-10 rounded-lg bg-neutral-200 dark:bg-neutral-700" />
+        </div>
+      </td>
+    </tr>
+  );
+}
+
+export function CustomersMobileSkeleton() {
+  return (
+    <div className="rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-4 shadow-sm">
+      <div className="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
+        <div className="flex items-center gap-3">
+          <div className="h-12 w-12 rounded-full bg-neutral-200 dark:bg-neutral-700" />
+          <div className="space-y-2">
+            <div className="h-4 w-28 rounded bg-neutral-200 dark:bg-neutral-700" />
+            <div className="h-3 w-36 rounded bg-neutral-200 dark:bg-neutral-700" />
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-3 pt-4 pb-3">
+        <div className="space-y-2">
+          <div className="h-3 w-16 rounded bg-neutral-200 dark:bg-neutral-700 mx-auto" />
+          <div className="h-5 w-8 rounded bg-neutral-200 dark:bg-neutral-700 mx-auto" />
+        </div>
+        <div className="space-y-2">
+          <div className="h-3 w-16 rounded bg-neutral-200 dark:bg-neutral-700 mx-auto" />
+          <div className="h-5 w-12 rounded bg-neutral-200 dark:bg-neutral-700 mx-auto" />
+        </div>
+        <div className="space-y-2">
+          <div className="h-3 w-12 rounded bg-neutral-200 dark:bg-neutral-700 mx-auto" />
+          <div className="h-5 w-12 rounded bg-neutral-200 dark:bg-neutral-700 mx-auto" />
+        </div>
+      </div>
+      <div className="flex justify-end gap-2 pt-3 border-t border-neutral-100 dark:border-neutral-800">
+        <div className="h-10 w-10 rounded-lg bg-neutral-200 dark:bg-neutral-700" />
+        <div className="h-10 w-10 rounded-lg bg-neutral-200 dark:bg-neutral-700" />
+      </div>
+    </div>
+  );
+}
+
+export function CustomersTableSkeleton() {
+  return (
+    <div className="mt-6">
+      <div className="md:hidden space-y-3">
+        <CustomersMobileSkeleton />
+        <CustomersMobileSkeleton />
+        <CustomersMobileSkeleton />
+        <CustomersMobileSkeleton />
+        <CustomersMobileSkeleton />
+      </div>
+
+      <div className="hidden md:block">
+        <div className="overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm">
+          <table className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-800">
+            <thead className="bg-neutral-50 dark:bg-neutral-950">
+              <tr>
+                <th
+                  scope="col"
+                  className="py-4 pl-6 pr-3 text-left text-xs font-semibold uppercase tracking-wider text-neutral-600 dark:text-neutral-400"
+                >
+                  Customer
+                </th>
+                <th
+                  scope="col"
+                  className="px-3 py-4 text-left text-xs font-semibold uppercase tracking-wider text-neutral-600 dark:text-neutral-400"
+                >
+                  Email
+                </th>
+                <th
+                  scope="col"
+                  className="px-3 py-4 text-left text-xs font-semibold uppercase tracking-wider text-neutral-600 dark:text-neutral-400"
+                >
+                  Total Invoices
+                </th>
+                <th
+                  scope="col"
+                  className="px-3 py-4 text-left text-xs font-semibold uppercase tracking-wider text-neutral-600 dark:text-neutral-400"
+                >
+                  Total Pending
+                </th>
+                <th
+                  scope="col"
+                  className="px-3 py-4 text-left text-xs font-semibold uppercase tracking-wider text-neutral-600 dark:text-neutral-400"
+                >
+                  Total Paid
+                </th>
+                <th scope="col" className="relative py-4 pl-3 pr-6">
+                  <span className="sr-only">Actions</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-neutral-100 dark:divide-neutral-800 bg-white dark:bg-neutral-900">
+              <CustomerRowSkeleton />
+              <CustomerRowSkeleton />
+              <CustomerRowSkeleton />
+              <CustomerRowSkeleton />
+              <CustomerRowSkeleton />
+              <CustomerRowSkeleton />
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
