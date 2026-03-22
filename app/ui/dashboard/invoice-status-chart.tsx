@@ -99,9 +99,6 @@ export default async function InvoiceStatusChart() {
                 value={data.total.count}
                 className="text-3xl font-bold text-neutral-900 dark:text-white"
               />
-              <p className="text-3xl font-bold text-neutral-900 dark:text-white">
-                {data.total.count}
-              </p>
               <p className="text-sm text-neutral-500 dark:text-neutral-400">
                 Total
               </p>
