@@ -67,7 +67,7 @@ export default function Page() {
 
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800">
                   <Image
-                    src="/hero-desktop.png"
+                    src="/hero-desktop.webp"
                     width={1000}
                     height={760}
                     alt="AccuDash Dashboard Preview"
