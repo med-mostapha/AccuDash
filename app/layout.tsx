@@ -3,6 +3,7 @@ import { inter } from "@/app/ui/fonts";
 import { Metadata } from "next";
 import { ThemeProvider } from "@/app/providers/ThemeProvider";
 import FloatingDarkModeToggle from "@/app/ui/layout/FloatingDarkModeToggle";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: {
