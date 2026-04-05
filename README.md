@@ -2,7 +2,7 @@
 
 A modern, full-stack financial management dashboard built with Next.js 16, featuring real-time invoice tracking, customer management, and AI-powered analytics.
 
-![AccuDash Dashboard](./public/hero-desktop.png)
+![AccuDash Dashboard](./public/hero-desktop.webp)
 
 ## 🌟 Features
 
