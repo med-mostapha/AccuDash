@@ -70,7 +70,7 @@ export default async function InvoiceStatusChart() {
                 strokeWidth="30"
                 strokeDasharray={circumference}
                 strokeDashoffset={paidOffset}
-                className="text-green-600 dark:text-green-500 transition-all duration-1000"
+                className="text-green-400 dark:text-green-400 transition-all duration-1000"
                 strokeLinecap="round"
               />
 
@@ -84,7 +84,7 @@ export default async function InvoiceStatusChart() {
                 strokeWidth="30"
                 strokeDasharray={circumference}
                 strokeDashoffset={pendingOffset}
-                className="text-orange-600 dark:text-orange-500 transition-all duration-1000"
+                className="text-orange-400 dark:text-orange-400 transition-all duration-1000"
                 strokeLinecap="round"
                 style={{
                   transform: `rotate(${paidPercentage * 3.6}deg)`,
