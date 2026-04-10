@@ -62,6 +62,7 @@ export default function RootLayout({
           <FloatingDarkModeToggle />
           {children}
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
